@@ -35,7 +35,7 @@ while True:
 cookies = {cookie['name']: cookie['value'] for cookie in browser.get_cookies()}
 user_id = str(cookies["ds_user_id"])
 print(user_id)
-user_id = '53570485906'
+user_id = '42542857552' #https://www.instagram.com/web/search/topsearch/?query=so.mbras TODO
 
 #user_id you can also hard code the user id here. 
 ##################################################################FOLLOWING######################################################################################
