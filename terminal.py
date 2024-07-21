@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import requests
 import json
+from chromedriver_py import binary_path # this will get you the path variable
 
 # Input username
 username = input("Enter username: ")
@@ -15,7 +16,8 @@ ig_url = f"https://www.instagram.com/{username}/?hl=en"
 # Setting up the Scraper
 chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
-browser = webdriver.Chrome(options=chrome_options)
+svc = webdriver.ChromeService(executable_path=binary_path)
+browser = webdriver.Chrome(options=chrome_options, service=svc)
 
 # Opening the instagram page to the desired username
 browser.get(ig_url)
@@ -29,9 +31,11 @@ while True:
     else:
         is_logged_in = input("Please make sure to type in 'ready' correctly: ")
 
-# #Cookie Way
+#Cookie Way
 cookies = {cookie['name']: cookie['value'] for cookie in browser.get_cookies()}
 user_id = str(cookies["ds_user_id"])
+print(user_id)
+user_id = '53570485906'
 
 #user_id you can also hard code the user id here. 
 ##################################################################FOLLOWING######################################################################################
